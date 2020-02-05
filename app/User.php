@@ -41,11 +41,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Group_users');
     }
 
-    public function message() {
+    public function messages() {
         return $this->hasMany('App\Message');
     }
 
-    public function task() {
+    public function tasks() {
         return $this->hasMany('App\Task');
     }
 }

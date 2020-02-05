@@ -23,3 +23,5 @@ Route::post('/chat_create', 'MessageController@create');
 
 Route::post('/signup', 'UserController@signup');
 Route::post('/signin', 'UserController@signin');
+
+Route::post('/group_create', 'GroupController@create');
