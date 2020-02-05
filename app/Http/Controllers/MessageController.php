@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\Message;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class MessageController extends Controller
 {
 
     public function index(Request $request) {
-        $messages = Message::all();
+        $messages = Message::with('group')->with('user')->get();
         return $messages;
     }
 

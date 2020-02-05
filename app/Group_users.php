@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Group_users extends Model
 {
     public function user() {
         return $this->belongsTo('App\User');
@@ -13,5 +13,4 @@ class Task extends Model
     public function group() {
         return $this->belongsTo('App\Group');
     }
-
 }
