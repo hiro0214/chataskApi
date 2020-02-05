@@ -15,3 +15,6 @@ Route::get('/task', 'TaskController@index');
 
 Route::get('/chat_init', 'MessageController@index');
 Route::post('/chat_create', 'MessageController@create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
