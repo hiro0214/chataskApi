@@ -12,3 +12,6 @@
 */
 
 Route::get('/task', 'TaskController@index');
+
+Route::get('/chat_init', 'MessageController@index');
+Route::post('/chat_create', 'MessageController@create');
