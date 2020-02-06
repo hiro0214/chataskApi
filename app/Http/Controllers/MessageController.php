@@ -9,7 +9,7 @@ class MessageController extends Controller
 {
 
     public function index(Request $request) {
-        $messages = Message::with('group')->with('user')->get();
+        $messages = Message::where('group_id', $request->group_id)->with('user')->get();
         return $messages;
     }
 

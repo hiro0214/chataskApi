@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
+    public function index(Request $request) {
+        $data = Group_users::where('user_id', $request->user_id)->with('group')->get();
+        return $data;
+    }
+
     public function create(Request $request) {
         $data = [
             'group_name' => $request->group_name
