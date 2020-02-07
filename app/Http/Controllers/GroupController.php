@@ -20,9 +20,9 @@ class GroupController extends Controller
         $group = new Group;
         $group->fill($data)->save();
 
-        foreach ($request->user_id as $user_id)
+        foreach ( $request->user_data as $user)
         $group->group_users()->createMany([
-            [ 'user_id' => $user_id ]
+            [ 'user_id' => $user['user_id'] ]
         ]);
     }
 
