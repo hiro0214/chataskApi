@@ -13,6 +13,11 @@ class GroupController extends Controller
         return $data;
     }
 
+    public function getUser(Request $request) {
+        $data = Group_users::where('group_id', $request->group_id)->with('user')->get();
+        return $data;
+    }
+
     public function create(Request $request) {
         $data = [
             'group_name' => $request->group_name

@@ -16,7 +16,8 @@
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/task', 'TaskController@index');
+Route::post('/task', 'TaskController@index');
+Route::post('/task_create', 'TaskController@create');
 
 Route::post('/chat_init', 'MessageController@index');
 Route::post('/chat_create', 'MessageController@create');
@@ -26,4 +27,5 @@ Route::post('/signin', 'UserController@signin');
 Route::post('/search', 'UserController@search');
 
 Route::post('/group_list', 'GroupController@index');
+Route::post('/group_user', 'GroupController@getUser');
 Route::post('/group_create', 'GroupController@create');

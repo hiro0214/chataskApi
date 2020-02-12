@@ -12,10 +12,12 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::all();
-        return $tasks;
+        $taskTodo = Task::where('group_id', $request->group_id)->where('state', 'Todo')->get();
+        $taskDoing = Task::where('group_id', $request->group_id)->where('state', 'Doing')->get();
+        $taskFin = Task::where('group_id', $request->group_id)->where('state', 'Fin')->get();
+        return ['todo' => $taskTodo, 'doing' => $taskDoing, 'fin' => $taskFin];
     }
 
     /**
@@ -23,9 +25,11 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $data = $request->all();
+        $task = new Task;
+        $task->fill($data)->save();
     }
 
     /**

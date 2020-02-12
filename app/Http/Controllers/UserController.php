@@ -35,8 +35,7 @@ class UserController extends Controller
     }
 
     public function search(Request $request) {
-        $keyword = $request->name;
-        $userList = User::where('name', 'like', "%{$keyword}%")->where('id','<>', $request->current)->get();
+        $userList = User::where('unique', $request->id)->where('id','<>', $request->current)->get();
         return $userList;
     }
 }
